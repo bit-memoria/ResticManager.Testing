@@ -1,0 +1,22 @@
+﻿@using Microsoft.EntityFrameworkCore
+@using ResticManager.Testing.Data
+@page "/"
+@inject IDbContextFactory<ResticContext> ResticContextFactory;
+
+<PageTitle>Home</PageTitle>
+
+<p>Show Repositories</p>
+<div>Repo Count: @RepositoryCount</div>
+<div>DatabaseProvider: @DatabaseProvider</div>
+<div>Snapshot Count: @SnapshotCount</div>
+
+@if (@ResticRepositories is not null && @ResticRepositories.Count > 0)
+{
+    
+    
+    @foreach (var repo in @ResticRepositories)
+    {
+        <div>Title:</div>
+        <div>@repo.Title</div>
+    }
+}
